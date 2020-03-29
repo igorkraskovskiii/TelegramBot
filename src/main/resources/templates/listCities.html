@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>List City</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<h1>List City</h1>
+<a th:href="@{/city/new}">Add City</a>
+<br/><br/>
+<div>
+    <table border="1">
+        <tr>
+            <th>City Name</th>
+            <th>Description</th>
+        </tr>
+        <tr th:each="city : ${cities}">
+            <td th:utext="${city.getCityName()}">...</td>
+            <td th:utext="${city.getDescription()}">...</td>
+            <td>
+                <a th:href="@{/city/edit/{id}(id=${city.id})}">Edit</a>
+            </td>
+            <td>
+                <a th:href="@{/city/delete/{id}(id=${city.id})}">Delete</a>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
