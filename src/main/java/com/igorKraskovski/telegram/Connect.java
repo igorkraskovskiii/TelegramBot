@@ -24,11 +24,9 @@ public class Connect {
 
     public City getCityByCityName(String cityName) {
         City city = new City();
-
-        try (PreparedStatement preparedStatement = this.connection
-                .prepareStatement(
-                        "select * from city where city_name = ?"
-                )) {
+        try (PreparedStatement preparedStatement = this.connection.prepareStatement(
+                "select * from city where city_name = ?"
+        )) {
             preparedStatement.setObject(1, cityName);
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
@@ -39,7 +37,6 @@ public class Connect {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
         return city;
     }
 }
