@@ -11,8 +11,9 @@
 <form th:action="@{/city/edit/{id}(id=${city.id})}"
       th:object="${city}" method="post">
     Id:
-    <input type="text" th:field="*{id}"/>
-    <br/>
+    <strong id="idText" th:text="${city.getId()}"></strong>
+    <input id="id" th:field="*{id}" type="hidden"/>
+    <br>
     City Name:
     <input type="text" th:field="*{cityName}"/>
     <br/>
@@ -22,8 +23,5 @@
     <input type="submit" value="Update"/>
     <button class="btn btn-light mt-3" type="submit"><a href="/cityAll">Back</a></button>
 </form>
-
-</div>
-
 </body>
 </html>
